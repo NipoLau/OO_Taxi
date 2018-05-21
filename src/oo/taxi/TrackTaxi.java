@@ -20,9 +20,9 @@ public class TrackTaxi extends Taxi implements Runnable{
 			taxi = _taxi;
 			n = 0;
 		}
-		public boolean hasNext(){return n < taxi.histry.size();}
-		public boolean hasPre(){return n > 0;}
-		public String next(){
+		public synchronized boolean hasNext(){return n < taxi.histry.size();}
+		public synchronized boolean hasPre(){return n > 0;}
+		public synchronized String next(){
 			for (int e = n ; e < taxi.histry.size() ; e++){
 				if (taxi.histry.get(e) != null){
 					n = e + 1;
@@ -31,7 +31,7 @@ public class TrackTaxi extends Taxi implements Runnable{
 			}
 			return "-1";
 		}
-		public String previous(){
+		public synchronized String previous(){
 			for (int e = n ; e >= 0 ; e--){
 				if (taxi.histry.get(e) != null){
 					n = e - 1;

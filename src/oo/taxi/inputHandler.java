@@ -14,13 +14,15 @@ public class inputHandler implements Runnable
 	private long sysStartTime;
 	private RoadCtr roadctr;
 	private FileHandler filehandler;
+	private TestCode testcode;
 	
-	public inputHandler(Reqqueue _reqQueue, long _sysStartTime, RoadCtr _roadctr, FileHandler _filehandler){
+	public inputHandler(Reqqueue _reqQueue, long _sysStartTime, RoadCtr _roadctr, FileHandler _filehandler, TestCode _testcode){
 		handler = new expHandler();
 		reqQueue = _reqQueue;
 		sysStartTime = _sysStartTime;
 		roadctr = _roadctr;
 		filehandler = _filehandler;
+		testcode = _testcode;
 	}
 	
 	public boolean repOK(){
@@ -42,6 +44,10 @@ public class inputHandler implements Runnable
 			while (true){
 				String thisline = scan.nextLine();
 				if (thisline.equals("END")) break;
+				if (thisline.equals("TestStart")) {
+					testcode.reachdata();
+					continue;
+				}
 				int[][] nums = handler.checkInput(thisline);
 				long reqTime = (System.currentTimeMillis() - sysStartTime)/100;
 				if (nums == null){

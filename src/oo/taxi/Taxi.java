@@ -45,7 +45,10 @@ public class Taxi implements Runnable
 		log = "";
 		lightGroup = _lightGroup;
 		type = _type;
-		if (type == 1) histry = new ArrayList<String>();
+		if (type == 1) {
+			histry = new ArrayList<String>();
+			shortpath = new Shortpath(map, flowmap);
+		}
 		INIT();
 	}
 	
@@ -254,6 +257,7 @@ public class Taxi implements Runnable
 					histry.add(log);
 					//starttime = System.currentTimeMillis();
 					detail.writeFile(log);
+					log = "";
 				}
 			}
 			/*try{Thread.sleep(DRIVETIME);}catch(Exception e){
