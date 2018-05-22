@@ -11,8 +11,8 @@ public class TestCode {
 		ite = tracktaxi[taxiId].terms();
 	}
 	public synchronized void reachdata(){
-		while (ite.hasNext()){
+		/*while (ite.hasNext()){
 			System.out.println(ite.next());
-		}
+		}*/
 	}
 }

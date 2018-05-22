@@ -256,9 +256,9 @@ public class Taxi implements Runnable
 				if (type == 1){
 					histry.add(log);
 					//starttime = System.currentTimeMillis();
-					detail.writeFile(log);
 					log = "";
 				}
+				else detail.writeFile(log);
 			}
 			/*try{Thread.sleep(DRIVETIME);}catch(Exception e){
 				System.out.println("ERROR");

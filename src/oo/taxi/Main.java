@@ -153,7 +153,13 @@ public class Main {
 		return false;
 	}
 	
-	private static int[][] copyMap(int[][] map, int mapsize){
+	private static int[][] copyMap(int[][] map, int mapsize)
+	/**
+	 * @REQUIRES: mapsize == 80 && map.size == 80
+	 * @MODIFIES: None
+	 * @EFFECTS: \result = a copy of map
+	 */
+	{
 		int[][] cpmap = new int[mapsize][mapsize];
 		for (int i = 0 ; i < mapsize ; i++){
 			for (int j = 0 ; j < mapsize ; j++){
