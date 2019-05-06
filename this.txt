@@ -1,6 +1,7 @@
 #No 1 Test File#
 
 #map
+map1.txt
 #end_map
 
 #flow
